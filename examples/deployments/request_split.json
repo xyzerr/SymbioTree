@@ -1,0 +1,56 @@
+{
+  "format": "symbiotree.deployment.v1",
+  "batch_size": 32,
+  "path_batch_sizes": {
+    "gpu_path": 32,
+    "pim_path": 16
+  },
+  "tree": {
+    "name": "routing",
+    "type": "RP",
+    "routing": [
+      [
+        0.8,
+        0.2
+      ],
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.2,
+        0.8
+      ]
+    ],
+    "children": [
+      {
+        "name": "gpu_path",
+        "type": "TP",
+        "devices": [
+          "gpu0",
+          "gpu1",
+          "gpu2",
+          "gpu3",
+          "gpu4",
+          "gpu5",
+          "gpu6",
+          "gpu7"
+        ]
+      },
+      {
+        "name": "pim_path",
+        "type": "TP",
+        "devices": [
+          "pim0",
+          "pim1",
+          "pim2",
+          "pim3",
+          "pim4",
+          "pim5",
+          "pim6",
+          "pim7"
+        ]
+      }
+    ]
+  }
+}

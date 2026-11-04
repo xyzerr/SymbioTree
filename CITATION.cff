@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "使用本软件时，请引用 SymbioTree 对应论文。Xiaoyu Zhang 与 Xiaotian Sun 为共同第一作者，Xiaoming Chen 为通讯作者。"
+type: software
+title: "SymbioTree：模拟器与部署搜索"
+authors:
+  # 共同第一作者
+  - family-names: Zhang
+    given-names: Xiaoyu
+  # 共同第一作者
+  - family-names: Sun
+    given-names: Xiaotian
+  - family-names: Wang
+    given-names: Xinyu
+  - family-names: Zhang
+    given-names: Xinjiang
+  - family-names: Dou
+    given-names: Chunmeng
+  - family-names: Li
+    given-names: Xueqi
+  # 通讯作者
+  - family-names: Chen
+    given-names: Xiaoming
+abstract: "SymbioTree 是基于异构硬件树（HHT）与部署决策树（DDT）的 GPU+PIM 异构 LLM 解码模拟器与部署搜索框架。它通过双树及其显式映射表示硬件与部署，建模执行性能，并搜索算子放置、请求路由和并行方式。"
+preferred-citation:
+  type: conference-paper
+  title: "From Ad Hoc to Structured: Synthesizing LLM Serving Deployments on Heterogeneous Systems"
+  authors:
+    - family-names: Zhang
+      given-names: Xiaoyu
+    - family-names: Sun
+      given-names: Xiaotian
+    - family-names: Wang
+      given-names: Xinyu
+    - family-names: Zhang
+      given-names: Xinjiang
+    - family-names: Dou
+      given-names: Chunmeng
+    - family-names: Li
+      given-names: Xueqi
+    - family-names: Chen
+      given-names: Xiaoming
+  collection-title: "IEEE International Symposium on High-Performance Computer Architecture (HPCA)"
+  year: 2027

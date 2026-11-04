@@ -1,0 +1,25 @@
+{
+  "model": {
+    "model_name": "example-dense-8b", "hidden_size": 4096,
+    "query_head_num": 32, "kv_head_num": 8, "intermediate_size": 14336, "layer_num": 32
+  },
+  "hardware": {"topology_file": "hardware/two_nodes.json"},
+  "deployment": {"file": "deployments/two_nodes_tp4.json"},
+  "serving": {
+    "req_type_num": 3, "req_dist": [1.0, 0.0, 0.0], "lam": 10.0, "t_end": 10.0,
+    "max_batch_lo": 16, "peak_seq_len": 2048, "runtime_reserve_ratio": 0.0,
+    "priority_ratio": 0.0, "seed": 42
+  },
+  "search": {
+    "seed": 42, "seed_cases": [],
+    "initialization": {
+      "population_size": 8, "max_depth": 3, "max_children": 4,
+      "batch_size_choices": [1, 4, 8, 16], "disabled_parallelisms": []
+    },
+    "evolution": {
+      "generations": 1, "elite_size": 2, "p_rewrite_mut": 0.35,
+      "p_numeric_mut": 0.65, "p_mapping_refine_mut": 0.0,
+      "rewrite_max_steps": 4, "rewrite_pattern_mode": "hybrid", "enable_subgraph_batch_mut": true
+    }
+  }
+}

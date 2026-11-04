@@ -1,0 +1,72 @@
+{
+  "model": {
+    "model_name": "example-dense-8b",
+    "hidden_size": 4096,
+    "query_head_num": 32,
+    "kv_head_num": 8,
+    "intermediate_size": 14336,
+    "layer_num": 32
+  },
+  "hardware": {
+    "preset": "intra_node",
+    "parameters": {
+      "NPU_FLOPS": 300,
+      "NPU_BW": 1.5,
+      "NPU_MEM_CAP": 80,
+      "PIM_FLOPS": 16,
+      "PIM_BW": 16,
+      "PIM_MEM_CAP": 80,
+      "nvl_bw": 350,
+      "nvl_lat": 8000,
+      "mm_bw": 1500,
+      "mm_lat": 10
+    }
+  },
+  "deployment": {
+    "preset": "gpu_pim_tp8"
+  },
+  "serving": {
+    "req_type_num": 3,
+    "req_dist": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "lam": 10.0,
+    "t_end": 10.0,
+    "max_batch_lo": 32,
+    "peak_seq_len": 2048,
+    "runtime_reserve_ratio": 0.0,
+    "priority_ratio": 0.0,
+    "seed": 42
+  },
+  "search": {
+    "seed": 42,
+    "seed_cases": [
+      "gpu_pim_tp8",
+      "gpu_pim_pipeline2_tp4"
+    ],
+    "initialization": {
+      "population_size": 8,
+      "max_depth": 3,
+      "max_children": 4,
+      "batch_size_choices": [
+        1,
+        4,
+        16,
+        32
+      ],
+      "disabled_parallelisms": []
+    },
+    "evolution": {
+      "generations": 1,
+      "elite_size": 2,
+      "p_rewrite_mut": 0.35,
+      "p_numeric_mut": 0.65,
+      "p_mapping_refine_mut": 0.0,
+      "rewrite_max_steps": 4,
+      "rewrite_pattern_mode": "hybrid",
+      "enable_subgraph_batch_mut": true
+    }
+  }
+}

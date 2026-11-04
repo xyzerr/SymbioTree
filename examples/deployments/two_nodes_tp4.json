@@ -1,0 +1,11 @@
+{
+  "format": "symbiotree.deployment.v1",
+  "batch_size": 16,
+  "tree": {
+    "name": "collaboration", "type": "OP",
+    "children": [
+      {"name": "linear", "type": "TP", "devices": ["gpu0", "gpu1", "gpu2", "gpu3"]},
+      {"name": "attention", "type": "TP", "devices": ["pim0", "pim1", "pim2", "pim3"]}
+    ]
+  }
+}

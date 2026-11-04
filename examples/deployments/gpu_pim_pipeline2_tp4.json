@@ -1,0 +1,74 @@
+{
+  "format": "symbiotree.deployment.v1",
+  "batch_size": 32,
+  "tree": {
+    "name": "pipeline",
+    "type": "BP",
+    "weights": [
+      1,
+      1
+    ],
+    "children": [
+      {
+        "name": "stage0",
+        "type": "OP",
+        "operators": [
+          "linear",
+          "attention"
+        ],
+        "children": [
+          {
+            "name": "stage0_linear",
+            "type": "TP",
+            "devices": [
+              "gpu0",
+              "gpu1",
+              "gpu2",
+              "gpu3"
+            ]
+          },
+          {
+            "name": "stage0_attention",
+            "type": "TP",
+            "devices": [
+              "pim0",
+              "pim1",
+              "pim2",
+              "pim3"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "stage1",
+        "type": "OP",
+        "operators": [
+          "linear",
+          "attention"
+        ],
+        "children": [
+          {
+            "name": "stage1_linear",
+            "type": "TP",
+            "devices": [
+              "gpu4",
+              "gpu5",
+              "gpu6",
+              "gpu7"
+            ]
+          },
+          {
+            "name": "stage1_attention",
+            "type": "TP",
+            "devices": [
+              "pim4",
+              "pim5",
+              "pim6",
+              "pim7"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

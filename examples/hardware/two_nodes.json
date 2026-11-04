@@ -1,0 +1,31 @@
+{
+  "format": "symbiotree.hardware.v1",
+  "device_defaults": {
+    "GPU": {"compute_tflops": 300, "memory_bandwidth_tb_s": 1.5, "memory_gib": 80, "bytes_per_element": 2},
+    "PIM": {"compute_tflops": 16, "memory_bandwidth_tb_s": 16, "memory_gib": 80, "bytes_per_element": 2}
+  },
+  "all_reduce": {"bandwidth_gb_s": 100, "latency_ns": 12000},
+  "tree": {
+    "name": "cluster", "type": "group", "bandwidth_gb_s": 100, "latency_ns": 12000,
+    "children": [
+      {
+        "name": "node0", "type": "group", "bandwidth_gb_s": 350, "latency_ns": 8000,
+        "children": [
+          {"name": "gpu0", "type": "GPU"},
+          {"name": "gpu1", "type": "GPU"},
+          {"name": "pim0", "type": "PIM"},
+          {"name": "pim1", "type": "PIM"}
+        ]
+      },
+      {
+        "name": "node1", "type": "group", "bandwidth_gb_s": 350, "latency_ns": 8000,
+        "children": [
+          {"name": "gpu2", "type": "GPU"},
+          {"name": "gpu3", "type": "GPU"},
+          {"name": "pim2", "type": "PIM"},
+          {"name": "pim3", "type": "PIM"}
+        ]
+      }
+    ]
+  }
+}
