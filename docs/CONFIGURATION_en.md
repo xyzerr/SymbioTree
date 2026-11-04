@@ -4,6 +4,8 @@
 
 This page explains configuration fields and customization. See [README.md](../README.md) for installation, commands and reading results.
 
+The result directory's `config.json` includes command-line overrides and can be reused as input to the same command. If no requests complete, `p99_tpot_ms` in `metrics.json` is `null`; the Python metrics API returns `NaN`.
+
 ## Model
 
 The following six fields correspond to the `ModelConfig` class in this project's [src/system/config.py](../src/system/config.py):
@@ -130,6 +132,8 @@ In a deployment template from the previous section, or the request-routing templ
 - **Device assignments**: edit each branch's `devices`, using names from the hardware configuration and assigning every device exactly once.
 - **Partition ratios**: the three `routing` rows for RP correspond to short, medium and long requests, with one column per branch. For BP and TP, `weights` sets partition weights; omitting it gives equal partitions.
 - **Batch size**: edit the top-level `batch_size`. In the request-routing template, `path_batch_sizes` sets batch sizes for individual execution paths.
+
+Idle execution paths are currently unsupported: every path must have a positive configured arrival rate under the combination of `routing` and `serving.req_dist`. For example, with short requests only, routing all short requests to the GPU while leaving the PIM path idle is not supported.
 
 See [README.md](../README.md#choose-inspect-and-customize-a-deployment) for inspecting, validating and evaluating the modified deployment.
 

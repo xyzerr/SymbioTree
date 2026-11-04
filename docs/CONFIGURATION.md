@@ -4,6 +4,8 @@
 
 本页说明配置字段和自定义方法；安装、运行命令与结果查看见 [README_zh.md](../README_zh.md)。
 
+结果目录的 `config.json` 保存包含命令行覆盖值的配置，可直接作为相同命令的输入再次运行。没有请求完成时，`metrics.json` 中的 `p99_tpot_ms` 为 `null`；Python 指标接口返回 `NaN`。
+
 ## 模型
 
 以下六个字段对应本项目 [src/system/config.py](../src/system/config.py) 中的 `ModelConfig` 类：
@@ -130,6 +132,8 @@ BP（两个层块，默认权重1:1）
 - **设备分配**：修改各分支的 `devices`，使用硬件中的设备名称，每个设备恰好分配一次。
 - **划分比例**：RP的 `routing` 三行依次对应短、中、长请求，每列对应一个分支；BP和TP的 `weights` 设置划分权重，省略时等分。
 - **批大小**：修改文件顶层的 `batch_size`；请求分流模板中的 `path_batch_sizes` 可分别设置各执行路径的批大小。
+
+当前不支持空闲执行路径，每条路径在 `routing` 与 `serving.req_dist` 共同作用下的配置到达率必须大于0。例如只有短请求时，不能将短请求全部送往GPU而让PIM路径空闲。
 
 修改后的查看、检查和评估方法见 [README_zh.md](../README_zh.md#选择查看和修改部署)。
 

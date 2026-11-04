@@ -242,6 +242,15 @@ def main():
     if out.exists(): parser.error(f'结果目录已存在：{out}')
     out.mkdir(parents=True)
     saved_config = dict(config)
+    saved_config['serving'] = dict(config['serving'], lam=cfg.lam,
+                                   max_batch_lo=cfg.max_batch_lo, t_end=cfg.t_end)
+    if args.command == 'search':
+        saved_config['search'] = dict(config.get('search', {}))
+        for section, key, value in [('initialization', 'population_size', args.population),
+                                    ('evolution', 'generations', args.generations)]:
+            if value is not None:
+                saved_config['search'][section] = dict(saved_config['search'].get(section, {}))
+                saved_config['search'][section][key] = value
     if deployment is not None:
         saved_config['deployment'] = {'file': 'deployment_input.json'}
         (out / 'deployment_input.json').write_bytes(deployment.read_bytes())

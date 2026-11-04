@@ -181,7 +181,7 @@ def summarize_metrics(res_list: List[SimulationResult],
 def _summarize_group_data(name: str, reqs: list[Request], t_end: float):
     n = len(reqs)
     if n == 0:
-        return f"[{name}] finished=0\n"
+        return float("nan")
 
     lat = np.array([r.finish_time + r.accum_delay_time - r.arrival_time for r in reqs], dtype=float)
     qd = np.array([r.start_time - r.arrival_time for r in reqs], dtype=float)
