@@ -221,6 +221,8 @@ requests/s are different quantities.
 
 ## Authors and citation
 
+This simulator was jointly developed by [Xiaoyu Zhang](https://github.com/xyzerr) and [Xiaotian Sun](https://github.com/sunxt99).
+
 Xiaoyu Zhang¹, Xiaotian Sun¹, Xinyu Wang¹, Xinjiang Zhang¹, Chunmeng Dou²,
 Xueqi Li¹, Xiaoming Chen¹
 

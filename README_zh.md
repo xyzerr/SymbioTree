@@ -152,6 +152,8 @@ TPOT按已完成请求统计；token吞吐量包含结束时仍在执行请求�
 
 ## 作者与引用
 
+本模拟器由 [Xiaoyu Zhang](https://github.com/xyzerr) 和 [Xiaotian Sun](https://github.com/sunxt99) 共同开发。
+
 Xiaoyu Zhang¹、Xiaotian Sun¹、Xinyu Wang¹、Xinjiang Zhang¹、Chunmeng Dou²、Xueqi Li¹、Xiaoming Chen¹
 
 ¹ 中国科学院计算技术研究所  
