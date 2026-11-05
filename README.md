@@ -19,7 +19,7 @@ throughput–tail-latency tradeoffs.
 
 The project provides three capabilities:
 
-1. **Deployment performance evaluation**: estimate throughput and P99 TPOT for a deployment under a specified model, hardware configuration and request workload.
+1. **Deployment performance evaluation**: estimate throughput and P99 time per output token (TPOT) for a deployment under a specified model, hardware configuration and request workload.
 2. **Deployment generation and design space exploration**: generate candidate deployments and explore combinations of operator placement, request routing and parallelism.
 3. **Modular access to the formal tree representations**: use the HHT, DDT and mapping modules through Python interfaces to construct and decode custom deployment representations and integrate them into your research code.
 
@@ -228,3 +228,4 @@ Xiaoming Chen is the corresponding author.**
 
 If you use SymbioTree, please cite the paper above. Citation metadata is available
 in [CITATION.cff](CITATION.cff).
+
