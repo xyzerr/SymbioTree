@@ -26,6 +26,8 @@ The project provides three capabilities:
 This simulator accompanies **From Ad Hoc to Structured: Synthesizing LLM Serving
 Deployments on Heterogeneous Systems**, accepted at **HPCA 2027**.
 
+> 🔬 Also check out our paper [SparseX-PIM: Sparse Linear Algebra on Processing-in-Memory](https://dl.acm.org/doi/10.1145/3845814.3850078)! It explores a near-memory architecture for direct solvers, an interesting direction in PIM. Happy reading! 🚀
+
 [中文文档](README_zh.md) · [Configuration guide](docs/CONFIGURATION_en.md) · [Python API](docs/API_en.md)
 
 ## Install
@@ -208,16 +210,6 @@ src/run_evolution.py  Standalone search entry point
 ```
 
 See the [Python API guide](docs/API_en.md) for integration examples.
-
-## Scope and interpretation
-
-The current implementation models dense Transformer decoding with static
-deployment decisions. It does not execute a neural network or generate a
-deployable CUDA runtime, and it does not model prefill or MoE execution.
-Throughput and latency are simulation estimates. P99 TPOT is computed over
-completed requests; output-token throughput also includes generated tokens from
-requests still active when the simulation ends. Arrival rate and completed
-requests/s are different quantities.
 
 ## Authors and citation
 

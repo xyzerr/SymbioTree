@@ -14,6 +14,8 @@ SymbioTree 面向 GPU+PIM 异构系统上的 LLM 解码服务，用两棵树统�
 
 本模拟器对应论文 **From Ad Hoc to Structured: Synthesizing LLM Serving Deployments on Heterogeneous Systems**，已被 **HPCA 2027** 接收。
 
+> 🔬 我们的另一篇论文 [SparseX-PIM: Sparse Linear Algebra on Processing-in-Memory](https://dl.acm.org/doi/10.1145/3845814.3850078) 探索了基于近存计算的直接法求解架构，也是一个很有意思的方向，欢迎查看！🚀
+
 [English](README.md) · [配置参数与单位](docs/CONFIGURATION.md) · [Python接口](docs/API.md)
 
 ## 安装并运行
@@ -139,16 +141,11 @@ python symbiotree.py simulate my_config.json --deployment outputs/my_search/fron
 - `manifest.json`：生效配置、软件版本、源码哈希和运行耗时。
 - `run.log`：运行过程日志。
 
-TPOT按已完成请求统计；token吞吐量包含结束时仍在执行请求已生成的token。
-已完成请求速率与输入到达率不同。结果是模拟估计，不是GPU实测。
-
 ## 扩展和集成
 
 `src/hardware`描述硬件树，`src/parallelism`描述部署树和执行成本，
 `src/serving`实现请求生成与离散事件模拟，`src/exploration`实现部署搜索。
 也可以在自己的Python程序中直接调用这些模块，见[Python接口示例](docs/API.md)。
-
-当前支持静态部署下的稠密Transformer解码，不包括预填充、MoE执行或真实CUDA部署。
 
 ## 作者与引用
 
